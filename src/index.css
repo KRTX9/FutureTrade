@@ -1,0 +1,322 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global scrollbar hide */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+@layer base {
+  html {
+    height: 100%;
+    background-color: #0b0e11;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+    background-color: #0b0e11;
+  }
+
+  #root {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #0b0e11;
+  }
+}
+
+@layer components {
+  /* Button Styles */
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 transform active:scale-95;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300;
+  }
+  
+  /* Input Styles */
+  .input {
+    @apply w-full px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all;
+  }
+  
+  /* Card Styles */
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6 border border-gray-200;
+  }
+  
+  /* Custom Scrollbar */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded-full;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full hover:bg-gray-400;
+  }
+
+  /* Dark Scrollbar for trading panels */
+  .scrollbar-dark::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .scrollbar-dark::-webkit-scrollbar-track {
+    @apply bg-gray-900 rounded-full;
+  }
+  
+  .scrollbar-dark::-webkit-scrollbar-thumb {
+    @apply bg-gray-700 rounded-full hover:bg-gray-600;
+  }
+}
+
+@layer utilities {
+  /* Fade-in Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-in-out;
+  }
+  
+  /* Slide-up Animation */
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  /* Slide-in from right Animation */
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .animate-slide-in {
+    animation: slideInRight 0.3s ease-out;
+  }
+
+  /* Mobile-specific utilities */
+  .mobile-safe-height {
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  /* Touch optimization */
+  .touch-optimized {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    user-select: none;
+  }
+}
+
+/* Custom Range Slider Styles for TP/SL */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  outline: none;
+}
+
+/* Webkit (Chrome, Safari, Edge) */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #06b6d4;
+  cursor: pointer;
+  border: 3px solid #0b0e11;
+  box-shadow: 0 0 0 2px #06b6d4;
+  transition: all 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 3px #06b6d4;
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+  transform: scale(1.1);
+}
+
+/* Firefox */
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #06b6d4;
+  cursor: pointer;
+  border: 3px solid #0b0e11;
+  box-shadow: 0 0 0 2px #06b6d4;
+  transition: all 0.2s ease;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 3px #06b6d4;
+}
+
+input[type="range"]::-moz-range-thumb:active {
+  transform: scale(1.1);
+}
+
+/* TP Slider - Green theme */
+input[type="range"].slider-tp::-webkit-slider-thumb {
+  background: #22c55e;
+  box-shadow: 0 0 0 2px #22c55e;
+}
+
+input[type="range"].slider-tp::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 3px #22c55e;
+}
+
+input[type="range"].slider-tp::-moz-range-thumb {
+  background: #22c55e;
+  box-shadow: 0 0 0 2px #22c55e;
+}
+
+input[type="range"].slider-tp::-moz-range-thumb:hover {
+  box-shadow: 0 0 0 3px #22c55e;
+}
+
+/* SL Slider - Red theme */
+input[type="range"].slider-sl::-webkit-slider-thumb {
+  background: #ef4444;
+  box-shadow: 0 0 0 2px #ef4444;
+}
+
+input[type="range"].slider-sl::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 3px #ef4444;
+}
+
+input[type="range"].slider-sl::-moz-range-thumb {
+  background: #ef4444;
+  box-shadow: 0 0 0 2px #ef4444;
+}
+
+input[type="range"].slider-sl::-moz-range-thumb:hover {
+  box-shadow: 0 0 0 3px #ef4444;
+}
+
+/* TradingView Chart Container Fixes */
+#tradingview_main,
+#tradingview_fullscreen {
+  background-color: #0b0e11 !important;
+}
+
+#tradingview_main iframe,
+#tradingview_fullscreen iframe {
+  background-color: #0b0e11 !important;
+}
+
+/* Hide TradingView loading artifacts */
+.tv-embed-widget-wrapper {
+  background-color: #0b0e11 !important;
+}
+
+.tv-embed-widget-wrapper__body {
+  background-color: #0b0e11 !important;
+}
+
+/* Force all TradingView elements to dark background */
+div[id^="tradingview_"] {
+  background-color: #0b0e11 !important;
+}
+
+div[id^="tradingview_"] * {
+  background-color: transparent !important;
+}
+
+div[id^="tradingview_"] iframe {
+  background-color: #0b0e11 !important;
+}
+
+/* TradingView container wrapper */
+.tradingview-widget-container {
+  background-color: #0b0e11 !important;
+}
+
+.tradingview-widget-container * {
+  background-color: transparent !important;
+}
+
+.tradingview-widget-container iframe {
+  background-color: #0b0e11 !important;
+}
+
+/* Hide TradingView's legend/symbol info but keep toolbar visible */
+#tradingview_main iframe,
+#tradingview_fullscreen iframe {
+  background-color: #0b0e11 !important;
+}
+
+/* Alternative: Hide the legend container */
+.chart-markup-table,
+.chart-controls-bar,
+.chart-page .chart-container .chart-controls-bar {
+  display: none !important;
+}
+
+/* Hide right sidebar symbol info panel */
+.chart-widget-wrapper .chart-widget-wrapper__right-toolbar,
+.layout__area--right,
+[data-role="right-toolbar"],
+.widgetbar-widget-wrapper {
+  display: none !important;
+  width: 0 !important;
+}
+
+/* Force dark background on all nested elements */
+#tradingview_main > div,
+#tradingview_fullscreen > div {
+  background-color: #0b0e11 !important;
+}
+
+#tradingview_main > div > div,
+#tradingview_fullscreen > div > div {
+  background-color: #0b0e11 !important;
+}

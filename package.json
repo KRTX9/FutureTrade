@@ -1,0 +1,44 @@
+{
+  "name": "krtx9-trading-platform",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@react-oauth/google": "^0.12.2",
+    "@tanstack/react-query": "^5.90.21",
+    "axios": "^1.6.2",
+    "clsx": "^2.1.1",
+    "date-fns": "^3.6.0",
+    "google-auth-library": "^10.4.1",
+    "lightweight-charts": "^4.2.3",
+    "lucide-react": "^0.460.0",
+    "numeral": "^2.0.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hot-toast": "^2.4.1",
+    "react-router-dom": "^6.20.0",
+    "recharts": "^3.7.0",
+    "zustand": "^4.4.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^5.0.4",
+    "autoprefixer": "^10.4.16",
+    "baseline-browser-mapping": "^2.9.19",
+    "eslint": "^9.36.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.22",
+    "globals": "^16.4.0",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.6",
+    "vite": "^7.1.7"
+  }
+}
